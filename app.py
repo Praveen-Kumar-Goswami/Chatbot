@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 # Initialize OpenAI client
 client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key="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",  # Replace with your actual API key
+    base_url="https://chatapi.akash.network/api/v1",
+    api_key="sk-5F7Kna9Tb3gxGsXWYo0KlA",  # Replace with your actual API key
 )
 
 @app.route("/", methods=["GET", "POST"])
@@ -25,7 +25,7 @@ def index():
         # Call OpenAI API
         try:
             completion = client.chat.completions.create(
-                model="google/gemma-3-12b-it:free",  # Ensure this model supports vision if using images
+                model="Meta-Llama-3-1-8B-Instruct-FP8",  # Ensure this model supports vision if using images
                 messages=[{"role": "user", "content": content}],
                 extra_headers={
                     "HTTP-Referer": "<YOUR_SITE_URL>",  # Optional
